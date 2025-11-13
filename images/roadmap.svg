@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <!-- Neon gradient for the path -->
+    <linearGradient id="neonGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00C6FF"/>
+      <stop offset="50%" stop-color="#00E5FF"/>
+      <stop offset="100%" stop-color="#00A3FF"/>
+    </linearGradient>
+
+    <!-- Strong glow for the path -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Subtle glow for text (readability on dark bg) -->
+    <filter id="textGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="tblur"/>
+      <feMerge>
+        <feMergeNode in="tblur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#0A0F2A"/>
+
+  <!-- Title (editable) -->
+  <text x="180" y="210" fill="#FFFFFF" font-family="Segoe UI, Arial, sans-serif" font-size="120" font-weight="700">
+    Roadmap
+  </text>
+  <text x="180" y="290" fill="#B5C7FF" font-family="Segoe UI, Arial, sans-serif" font-size="40">
+    Glowing digital path • 2022 → 2025
+  </text>
+
+  <!-- Glowing S-curve from bottom-left to top-right -->
+  <!-- Under-glow -->
+  <path d="M 200 1000
+           C 600 780, 900 680, 1100 780
+           S 1600 430, 1700 200"
+        stroke="#00D0FF" stroke-width="26" fill="none" opacity="0.45" filter="url(#glow)"/>
+  <!-- Core neon stroke -->
+  <path d="M 200 1000
+           C 600 780, 900 680, 1100 780
+           S 1600 430, 1700 200"
+        stroke="url(#neonGrad)" stroke-width="8" fill="none"/>
+
+  <!-- Years in strict chronological order along the path -->
+  <g font-family="Segoe UI, Arial, sans-serif" font-weight="700" fill="#FFFFFF" font-size="80" filter="url(#textGlow)">
+    <!-- 2022: start (bottom-left) -->
+    <text x="310" y="880">2022</text>
+    <!-- 2023: first bend -->
+    <text x="1130" y="700">2023</text>
+    <!-- 2024: upper segment -->
+    <text x="1400" y="410">2024</text>
+    <!-- 2025: end (top-right) -->
+    <text x="1700" y="210">2025</text>
+  </g>
+</svg>
