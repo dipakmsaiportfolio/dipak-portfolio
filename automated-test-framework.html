@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Automated Test Framework</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#blogs">Blogs</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="wrapper" style="padding:2rem;">
+    <h1>Automated Test Framework</h1>
+    <p>A robust framework designed to automate regression and functional testing across multiple platforms. More to come ........</p>
+    <p><a href="index.html" class="btn">← Back to Home</a></p>
+  </main>
+
+  <footer>
+    <p>© 2024 Tool credits</p>
+    <div class="social-links">
+      <a href="#">Twitter</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">GitHub</a>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const resumeLink = document.querySelector('a[href="resume/resume.pdf"]');
+      if (resumeLink) {
+        resumeLink.addEventListener("click", function(e) {
+          const xhr = new XMLHttpRequest();
+          xhr.open("HEAD", this.href, true);
+          xhr.onload = function() {
+            if (xhr.status !== 200) {
+              e.preventDefault();
+              window.open(resumeLink.href, "_blank");
+            }
+          };
+          xhr.onerror = function() {
+            e.preventDefault();
+            window.open(resumeLink.href, "_blank");
+          };
+          xhr.send();
+        });
+      }
+    });
+  </script>
+</body>
+</html>

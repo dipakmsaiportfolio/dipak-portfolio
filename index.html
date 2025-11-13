@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Portfolio</title>
+<link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+<header class="site-header" id="home">
+<nav aria-label="Primary">
+<ul class="nav-links wrapper">
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About Me</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#gallery">Gallery</a></li>
+<li><a href="#blog">Blog</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+</header>
+<section aria-label="Site banner" class="hero">
+<div class="hero-media">
+<img alt="Site banner" height="800" src="images/banner.jpg" width="1920"/>
+</div>
+<div class="hero-content">
+<h1>Welcome to My Portfolio</h1>
+<p class="tagline">AI-generated banner image</p>
+</div>
+</section>
+<main class="content-grid wrapper">
+<section class="left-column">
+<section aria-labelledby="about-title" class="about" id="about">
+<h2 id="about-title">About Me</h2>
+<div class="avatar" style="margin-bottom: 0.1rem;">
+<img alt="Profile" height="512" src="images/profile.jpg" width="512"/>
+</div>
+<p>I am a Quality Engineer specializing in software testing and automation, with a strong foundation in ensuring product reliability and performance across development cycles. My work involves designing robust test strategies, implementing automated test frameworks, and driving continuous improvement in software quality. I have a deep interest in generative AI and its transformative potential across industries. I'm particularly fascinated by how generative models can enhance testing processes, accelerate defect detection, and contribute to intelligent automation.</p>
+<a class="btn" download="Dipak_Aryal_Resume.pdf" href="resume/resume.pdf" target="_blank" >Download Resume</a>
+</section>
+<section aria-labelledby="contact-title" class="contact-form" id="contact">
+<h3 id="contact-title">Contact</h3>
+<!-- modified html form to have messages sent via formspree -->
+<form id="my-form" action="https://formspree.io/f/xwpakdzl" method="POST">
+  <label>Email:</label>
+  <input type="email" name="email" />
+  <label>Message:</label>
+  <input type="text" name="message" />
+  <button id="my-form-button">Submit</button>
+  <p id="my-form-status"></p>
+</form>
+</section>
+</section>
+<section class="right-column">
+<section aria-labelledby="projects-title" class="projects" id="projects">
+<h2 id="projects-title">Projects</h2>
+<p>AI-generated descriptions key projects</p>
+<div class="project-cards">
+<article class="card">
+<div class="media"><a href="generative-ai.html"><img alt="Generative AI Journey project" height="720" loading="lazy" src="images/generative-ai.jpg" width="960"/></a></div>
+<div class="card-body"><h3 class="card-title">Generative AI Journey</h3></div>
+</article>
+<article class="card">
+<div class="media"><a href="automated-test-framework.html"><img alt="Automated Test Framework" height="720" loading="lazy" src="images/test-framework.jpg" width="960"/></a></div>
+<div class="card-body"><h3 class="card-title">Automated Test Framework</h3></div>
+</article>
+<article class="card">
+<div class="media"><a href="ai-driven-bug-detection.html"><img alt="AI-Driven Bug Detection" height="720" loading="lazy" src="images/bug-detection.jpg" width="960"/></a></div>
+<div class="card-body"><h3 class="card-title">AI-Driven Bug Detection</h3></div>
+</article>
+<article class="card">
+<div class="media"><a href="portfolio-website.html"><img alt="Portfolio Website" height="720" loading="lazy" src="images/portfolio-site.jpg" width="960"/></a></div>
+<div class="card-body"><h3 class="card-title">Portfolio Website</h3></div>
+</article>
+</div>
+</section>
+<section aria-labelledby="gallery-title" class="gallery-box" id="gallery">
+<h2 id="gallery-title">AI Roadmap</h2>
+<p class="muted"></p>
+<div class="roadmap">
+<div class="media media--contain"><img alt="Interactive roadmap 2022 to 2025" height="810" loading="lazy" src="images/roadmap.svg" width="1040"/></div>
+</div>
+</section>
+<section aria-labelledby="blog-title" class="blog-columns" id="blog">
+<h2 class="visually-hidden" id="blog-title">Blog</h2>
+<article class="blog-post card">
+<div class="media"><a href="ai-insights-blog.html"><img alt="Exploring the Potential of AI" height="720" loading="lazy" src="images/ai-insights.jpg" width="960"/></a></div>
+<div class="card-body"><h4 class="card-title">Exploring the Potential of AI</h4><p class="muted">Insights into how AI is transforming industries.</p></div>
+</article>
+<article class="blog-post card">
+<div class="media"><a href="quality-engineer-blog.html"><img alt="Lessons Learned as a Quality Engineer" height="720" loading="lazy" src="images/quality-engineer.jpg" width="960"/></a></div>
+<div class="card-body"><h4 class="card-title">Lessons Learned as a Quality Engineer</h4><p class="muted">Reflections on testing, automation, and growth.</p></div>
+</article>
+</section> 
+</section>
+</main>
+<footer>
+<p>© 2024 Tool credits</p>
+<p class="social-links"><a href="#">Twitter</a> <a href="#">LinkedIn</a> <a href="#">GitHub</a></p>
+</footer>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const resumeLink = document.querySelector('a[href="resume/resume.pdf"]');
+  if (resumeLink) {
+    resumeLink.addEventListener("click", function(e) {
+      const xhr = new XMLHttpRequest();
+      xhr.open("HEAD", this.href, true);
+      xhr.onload = function() {
+        if (xhr.status !== 200) {
+          e.preventDefault();
+          window.open(resumeLink.href, "_blank");
+        }
+      };
+      xhr.onerror = function() {
+        e.preventDefault();
+        window.open(resumeLink.href, "_blank");
+      };
+      xhr.send();
+    });
+  }
+});
+</script>
+</body>
+<!-- Place this script at the end of the body tag -->
+<script>
+  var form = document.getElementById("my-form");
+  
+  async function handleSubmit(event) {
+    event.preventDefault();
+    var status = document.getElementById("my-form-status");
+    var data = new FormData(event.target);
+    fetch(event.target.action, {
+      method: form.method,
+      body: data,
+      headers: {
+          'Accept': 'application/json'
+      }
+    }).then(response => {
+      if (response.ok) {
+        status.innerHTML = "Thanks for your submission!";
+        form.reset()
+      } else {
+        response.json().then(data => {
+          if (Object.hasOwn(data, 'errors')) {
+            status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+          } else {
+            status.innerHTML = "Oops! There was a problem submitting your form"
+          }
+        })
+      }
+    }).catch(error => {
+      status.innerHTML = "Oops! There was a problem submitting your form"
+    });
+  }
+  form.addEventListener("submit", handleSubmit)
+</script>
+</html>
